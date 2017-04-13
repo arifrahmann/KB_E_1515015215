@@ -1,0 +1,15 @@
+DOMAINS
+ integerlist = integer* %pada domain diberikan tanda asteriks berarti menunjukan bahwa ini bertipe list
+ 
+PREDICATES
+ tambah(integerlist,integerlist,integerlist) %parameter isiannya adalah semuanya integerlist, maka
+ 					     %isian parameter tersebut semuanya adalah sebuah list
+	
+CLAUSES
+ tambah([],List,List).			%disini ada paramater kosong yang berarti bahwa parameter ini bisa digunakan kapan saja
+ tambah([H|L1],List2,[H|L3]):-          %lalu bentuk list diatas tadi kita dapat pecahkan menjadi sebuah list yang ekuivalen
+ 		tambah(L1,List2,L3).	%disini bahwa L3 tidak memiliki sebuah vertical bar "|" sehingga akan dianggap sebuah tail
+         				%sedangan yang lainnya memliki vertikal bar
+GOAL                                    
+ tambah([1,2,3],[5,6],L).		%dan di goal ini akan menampilkan dimana [1,2,3] itu sebagai L1 dan [5,6] merupakan List2
+ 					%dan dimana 1 itu merupakan head dan 2,3 adlah tail, ini berlaku juga pada list yang kedua
